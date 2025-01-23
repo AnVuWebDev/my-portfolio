@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const projectLinks = [
-    "https://link-to-project-1.com", // Site Vitrine
+    "https://www.pharma-expo-cameroun.com/", // Site Evènementiel
     "https://toucanpropertyphuket.com/", // Site Immobilier
-    "https://link-to-project-3.com", // Site E-Commerce
-    "https://link-to-project-4.com", // Portfolio
+    "https://www.universkope.com/", // Site E-Commerce
+    "https://www.anvuwebdev.com/", // Portfolio
   ];
 
   // Code d'initialisation des sliders
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initializing the titles slider
     const titles = [
-      "Site Vitrine",
+      "Site<br>Evènementiel",
       "Site<br>Immobilier",
       "Site<br>E-Commerce",
       "Portfolio",
@@ -62,9 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initializing the descriptions slider
     const descriptions = [
-      "html<br>css<br>javascript",
-      "WordPress",
-      "html<br>css<br>javascript",
+      "wix<br>html<br>css<br>javascript",
+      "WordPress<br>html<br>css",
+      "Shopify<br>html<br>css",
       "html<br>css<br>javascript",
     ];
 
