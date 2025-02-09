@@ -19,7 +19,9 @@
   $slide-height: 90px,
   $vertical: false,
   $reverse: false
-) {
+) 
+
+{
   // Slider container
   .#{$cssClass} {
     position: relative;
@@ -138,15 +140,18 @@ $ms-images-slide-height: 400px;
   // Slides images
   .ms-slide {
     &:nth-child(1) .ms-slide__image {
-      background-image: url("../img/project1-PEC2025.webp");
+      background-image: url("../img/project0-infirmiere.webp");
     }
     &:nth-child(2) .ms-slide__image {
-      background-image: url("../img/project2-immo.webp");
+      background-image: url("../img/project1-PEC2025.webp");
     }
     &:nth-child(3) .ms-slide__image {
-      background-image: url("../img/project3-ecommerce.webp");
+      background-image: url("../img/project2-immo.webp");
     }
     &:nth-child(4) .ms-slide__image {
+      background-image: url("../img/project3-ecommerce.webp");
+    }
+    &:nth-child(5) .ms-slide__image {
       background-image: url("../img/project4-portfolio.webp");
     }
   }
@@ -253,7 +258,6 @@ $ms-descriptions-slide-height: 120px;
 .ms--descriptions {
   position: absolute;
   left: calc(10% - $ms-titles-slide-width / 2);
-  left: calc(15% - $ms-titles-slide-width / 2);
   top: calc(65% - $ms-titles-slide-height / 2);
   z-index: 1;
   pointer-events: none;
@@ -314,6 +318,10 @@ $ms-links-slide-height: 60px;
 }
 
 // Pagination
+$arrow-size: 40px;
+$arrow-spacing: 20px;
+$ms-descriptions-mobile-height: 15vh;
+
 
 .pagination {
   display: flex;
@@ -363,13 +371,7 @@ $ms-links-slide-height: 60px;
 
 $color-primary: rgba(var(--color-solid), 1);
 $color-secondary: rgba(var(--text-color), 0.5);
-/*
-a {
-  color: $color-primary;
-  text-decoration: none;
-  cursor: pointer;
-}
-*/
+
 .container {
   position: relative;
   display: flex;
@@ -401,9 +403,11 @@ a {
 // Responsive styles
 /* Pour mobile (orientation: portrait) */
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  
   .ms--numbers {
-    left: calc(100% - $ms-images-slide-width / 2);
-    top: calc(5% - $ms-images-slide-height / 2);
+    left: -70px;
+    top: calc(190% - $ms-images-slide-height / 2);
+    transform: scale(80%, 80%);
   }
 
   $ms-images-slide-width: 525px;
@@ -416,22 +420,23 @@ a {
 
   .ms--images {
     left: -20vw;
+    top: 5vh;
     overflow: visible;
 
-    .ms-slide__image-container {
-      width: 90%;
-      height: 80%;
-    }
+  .ms-slide__image-container {
+    width: 90%;
+    height: 80%;
   }
+}
 
   .ms--titles {
     left: calc(50% - $ms-titles-slide-width / 2);
-    top: calc(1% - $ms-titles-slide-height / 2);
+    top: calc(10% - $ms-titles-slide-height / 2);
     justify-content: center;
     text-align: center;
     font-size: 0.7rem;
 
-    .ms-slide {
+  .ms-slide {
       transform: scale(0.8);
     }
   }
@@ -451,23 +456,47 @@ a {
     justify-content: center;
     align-items: center;
     text-align: center;
-    left: 25vw;
-    top: 15vh;
-    background-color: rgba(var(--bg-color1), 0.7);
+    transform: translate(50%, 180%);
   }
 
   .ms--links {
     left: calc(50% - $ms-links-slide-width / 2);
-    top: calc(40vh + $ms-links-slide-height);
+    top: calc(100% + $ms-links-slide-height);
     z-index: 2;
     text-align: center;
+    bottom: $ms-descriptions-mobile-height + 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translate(-50%, 150%);
+    z-index: 11;
   }
+}
 
   .pagination {
-    left: 50%;
-    top: calc(50vh + $ms-links-slide-height);
-    transform: translateX(-50%);
-  }
+    left: 25vw;
+    top: 170%;
+  };
+
+  .ms--descriptions {
+    $ms-descriptions-mobile-height: 15vh;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(var(--bg-color1), 0.95);
+    backdrop-filter: blur(5px);
+    padding: 10px;
+    margin: 0;
+    z-index: 10;
+    
+    .ms-slide {
+      text-align: center;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
 }
 
 /* Pour tablette (orientation: paysage) */
@@ -479,10 +508,10 @@ a {
 
   .ms--titles {
     left: calc(50% - $ms-titles-slide-width / 2);
-    top: calc(10% - $ms-titles-slide-height / 2);
+    top: calc(5% - $ms-titles-slide-height / 2);
     justify-content: center;
     text-align: center;
-    font-size: 0.5rem;
+    font-size: 0.9rem;
 
     .ms-slide {
       transform: scale(0.8);
@@ -503,16 +532,39 @@ a {
     }
   }
 
-  .ms--titles {
-    top: calc(5% - $ms-titles-slide-height / 2);
-    font-size: 0.9rem;
-  }
+  $ms-descriptions-slide-width: 200px;
+  $ms-descriptions-slide-height: 120px;
+
+  @include ms(
+    $cssClass: "ms--descriptions",
+    $slider-length: $ms-descriptions-slide-height,
+    $slider-center: true,
+    $slide-width: $ms-descriptions-slide-width,
+    $slide-height: $ms-descriptions-slide-height,
+    $vertical: true,
+    $reverse: true
+  );
 
   .ms--descriptions {
-    left: calc(5% - $ms-descriptions-slide-width / 2);
-    top: calc(50% - $ms-descriptions-slide-height / 2);
-    text-align: right;
-  }
+    position: absolute;
+    left: 20px; 
+    top: 50%; 
+    transform: translateY(-50%);
+    text-align: center;
+
+  .ms-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.1em;
+      
+  p {
+  margin: 0;
+  padding: 10px;
+  line-height: 1.5;
+}
+}
+}
 
   .ms--links {
     left: calc(50% - $ms-links-slide-width / 2);
@@ -525,6 +577,7 @@ a {
     top: calc(100% + 15px);
     transform: translateX(-50%);
   }
+
 }
 
 /* Pour Laptop (orientation: paysage) */
@@ -566,7 +619,7 @@ a {
 /* Pour Screen 4K (orientation: paysage) */
 @media all and (min-width: 1441px) {
   $ms-images-slide-width: 1350px;
-  $ms-images-slide-height: 800px;
+  $ms-images-slide-height: 700px;
   @include ms(
     $cssClass: "ms--images",
     $slider-length: 100%,
@@ -597,7 +650,7 @@ a {
   }
 
   .ms--titles {
-    left: calc(15% - $ms-titles-slide-width / 2);
+    left: calc(20% - $ms-titles-slide-width / 2);
     top: calc(25% - $ms-titles-slide-height / 2);
     font-size: 1.5rem;
     overflow: visible;
@@ -611,7 +664,7 @@ a {
   }
 
   $ms-links-slide-width: 350px;
-  $ms-links-slide-height: 120px;
+  $ms-links-slide-height: 150px;
 
   @include ms(
     $cssClass: "ms--links",

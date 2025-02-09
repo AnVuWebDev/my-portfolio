@@ -38,15 +38,18 @@
   left: -70px;
 }
 .ms--images .ms-slide:nth-child(1) .ms-slide__image {
-  background-image: url("../img/project1-PEC2025.webp");
+  background-image: url("../img/project0-infirmiere.webp");
 }
 .ms--images .ms-slide:nth-child(2) .ms-slide__image {
-  background-image: url("../img/project2-immo.webp");
+  background-image: url("../img/project1-PEC2025.webp");
 }
 .ms--images .ms-slide:nth-child(3) .ms-slide__image {
-  background-image: url("../img/project3-ecommerce.webp");
+  background-image: url("../img/project2-immo.webp");
 }
 .ms--images .ms-slide:nth-child(4) .ms-slide__image {
+  background-image: url("../img/project3-ecommerce.webp");
+}
+.ms--images .ms-slide:nth-child(5) .ms-slide__image {
   background-image: url("../img/project4-portfolio.webp");
 }
 .ms--images .ms-slide__image-container {
@@ -213,7 +216,6 @@
 .ms--descriptions {
   position: absolute;
   left: calc(10% - 175px);
-  left: calc(15% - 175px);
   top: calc(65% - 50px);
   z-index: 1;
   pointer-events: none;
@@ -328,13 +330,6 @@
   opacity: 1;
 }
 
-/*
-a {
-  color: $color-primary;
-  text-decoration: none;
-  cursor: pointer;
-}
-*/
 .container {
   position: relative;
   display: flex;
@@ -365,8 +360,9 @@ a {
 /* Pour mobile (orientation: portrait) */
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   .ms--numbers {
-    left: calc(100% - 350px);
-    top: calc(5% - 200px);
+    left: -70px;
+    top: calc(190% - 200px);
+    transform: scale(80%, 80%);
   }
   .ms--images {
     position: relative;
@@ -402,6 +398,7 @@ a {
   }
   .ms--images {
     left: -20vw;
+    top: 5vh;
     overflow: visible;
   }
   .ms--images .ms-slide__image-container {
@@ -410,7 +407,7 @@ a {
   }
   .ms--titles {
     left: calc(50% - 175px);
-    top: calc(1% - 50px);
+    top: calc(10% - 50px);
     justify-content: center;
     text-align: center;
     font-size: 0.7rem;
@@ -455,22 +452,44 @@ a {
     justify-content: center;
     align-items: center;
     text-align: center;
-    left: 25vw;
-    top: 15vh;
-    background-color: rgba(var(--bg-color1), 0.7);
+    transform: translate(50%, 180%);
   }
   .ms--links {
     left: calc(50% - 60px);
-    top: calc(40vh + 60px);
+    top: calc(100% + 60px);
     z-index: 2;
     text-align: center;
-  }
-  .pagination {
+    bottom: 25vh;
     left: 50%;
-    top: calc(50vh + 60px);
     transform: translateX(-50%);
+    transform: translate(-50%, 150%);
+    z-index: 11;
   }
 }
+.pagination {
+  left: 25vw;
+  top: 170%;
+}
+
+.ms--descriptions {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(var(--bg-color1), 0.95);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  padding: 10px;
+  margin: 0;
+  z-index: 10;
+}
+.ms--descriptions .ms-slide {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Pour tablette (orientation: paysage) */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .ms--numbers {
@@ -479,10 +498,10 @@ a {
   }
   .ms--titles {
     left: calc(50% - 175px);
-    top: calc(10% - 50px);
+    top: calc(5% - 50px);
     justify-content: center;
     text-align: center;
-    font-size: 0.5rem;
+    font-size: 0.9rem;
   }
   .ms--titles .ms-slide {
     transform: scale(0.8);
@@ -498,14 +517,63 @@ a {
     width: 75%;
     height: 75%;
   }
-  .ms--titles {
-    top: calc(5% - 50px);
-    font-size: 0.9rem;
+  .ms--descriptions {
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .ms--descriptions.ms-container--vertical {
+    width: 200px;
+    height: 120px;
+    max-height: 100%;
+  }
+  .ms--descriptions.ms-container--vertical .ms-track {
+    flex-direction: column;
+    top: calc(50% - 60px);
+  }
+  .ms--descriptions.ms-container--vertical.ms-container--reverse .ms-track {
+    flex-direction: column-reverse;
+    top: auto;
+    bottom: calc(50% - 60px);
+  }
+  .ms--descriptions.ms-container--vertical .ms-slide {
+    display: flex;
+    flex-direction: column;
+  }
+  .ms--descriptions .ms-track {
+    display: flex;
+    position: absolute;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .ms--descriptions .ms-slide {
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 120px;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
   }
   .ms--descriptions {
-    left: calc(5% - 175px);
-    top: calc(50% - 60px);
-    text-align: right;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+  }
+  .ms--descriptions .ms-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.1em;
+  }
+  .ms--descriptions .ms-slide p {
+    margin: 0;
+    padding: 10px;
+    line-height: 1.5;
   }
   .ms--links {
     left: calc(50% - 60px);
@@ -555,7 +623,7 @@ a {
   }
   .ms--images.ms-container--horizontal {
     width: 100%;
-    height: 800px;
+    height: 700px;
     max-width: 100%;
   }
   .ms--images.ms-container--horizontal .ms-track {
@@ -576,7 +644,7 @@ a {
     align-items: center;
     justify-content: center;
     width: 1350px;
-    height: 800px;
+    height: 700px;
     -webkit-user-select: none;
        -moz-user-select: none;
             user-select: none;
@@ -593,11 +661,11 @@ a {
   }
   .ms--numbers {
     left: calc(35% - 675px);
-    top: calc(25% - 400px);
+    top: calc(25% - 350px);
     overflow: visible;
   }
   .ms--titles {
-    left: calc(15% - 175px);
+    left: calc(20% - 175px);
     top: calc(25% - 50px);
     font-size: 1.5rem;
     overflow: visible;
@@ -614,12 +682,12 @@ a {
   }
   .ms--links.ms-container--vertical {
     width: 350px;
-    height: 120px;
+    height: 150px;
     max-height: 100%;
   }
   .ms--links.ms-container--vertical .ms-track {
     flex-direction: column;
-    top: calc(50% - 60px);
+    top: calc(50% - 75px);
   }
   .ms--links.ms-container--vertical .ms-slide {
     display: flex;
@@ -637,7 +705,7 @@ a {
     align-items: center;
     justify-content: center;
     width: 350px;
-    height: 120px;
+    height: 150px;
     -webkit-user-select: none;
        -moz-user-select: none;
             user-select: none;

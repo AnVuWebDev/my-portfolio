@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const projectLinks = [
+    "https://infirmiere-liberale-sevran.fr/", // Site Vitrine
     "https://www.pharma-expo-cameroun.com/", // Site Evènementiel
     "https://toucanpropertyphuket.com/", // Site Immobilier
     "https://www.universkope.com/", // Site E-Commerce
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const msNumbers = new MomentumSlider({
       el: slidersContainer,
       cssClass: "ms--numbers",
-      range: [1, 4],
+      range: [1, 5],
       rangeContent: function (i) {
         return "0" + i;
       },
@@ -39,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initializing the titles slider
     const titles = [
+      "Site<br>Vitrine",
       "Site<br>Evènementiel",
       "Site<br>Immobilier",
       "Site<br>E-Commerce",
@@ -48,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const msTitles = new MomentumSlider({
       el: slidersContainer,
       cssClass: "ms--titles",
-      range: [0, 3],
+      range: [0, 4],
       rangeContent: function (i) {
         return `<h4>${titles[i]}</h4>`;
       },
@@ -62,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initializing the descriptions slider
     const descriptions = [
+      "html<br>css<br>javascript",
       "wix<br>html<br>css<br>javascript",
       "WordPress<br>html<br>css",
       "Shopify<br>html<br>css",
@@ -100,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const msImages = new MomentumSlider({
       el: slidersContainer,
       cssClass: "ms--images",
-      range: [0, 3],
+      range: [0, 4],
       rangeContent: function () {
         return '<div class="ms-slide__image-container"><div class="ms-slide__image"></div></div>';
       },

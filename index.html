@@ -3,8 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./img/favicon-av.webp" type="image/png">
-    <title>Portfolio An VU</title>
+    <meta name="description" content="Portfolio d'An VU, développeuse web front-end passionnée de webdesign, design UI/UX et SEO. Découvrez mes projets et compétences en développement web.">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="développeur web, développeuse web, frontend developer, web developer, responsive design, JavaScript, React, Vue.js, portfolio développeur, UX/UI, développement web Paris, intégration web, fullstack developer">
+    <meta name="author" content="An Vu">
+    <meta name="copyright" content="© 2025 An Vu - All rights reserved">
+    <meta http-equiv="content-language" content="fr">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="An Vu - Développeuse Web | Portfolio">
+    <meta property="og:description" content="Portfolio d'An VU, développeuse web front-end passionnée de webdesign, design UI/UX et SEO. Découvrez mes projets et compétences en développement web.">
+    <meta property="og:url" content="https://www.anvuwebdev.com/">
+    <meta property="og:image" content="https://www.anvuwebdev.com/img/bg-about.jpg">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "An Vu",
+        "jobTitle": "Développeuse Web",
+        "image": "https://www.anvuwebdev.com/img/bg-about.jpg"",
+        "url": "https://www.anvuwebdev.com/",
+        "sameAs": [
+          "https://www.linkedin.com/in/an-vu-131322143/",
+          "https://github.com/AnVuWebDev"
+        ],
+        "knowsAbout": [
+        "Développement Web Frontend",
+        "JavaScript",
+        "React",
+        "HTML5",
+        "CSS3",
+        "Responsive Design",
+        "SEO",
+        "Referencement naturel"
+        ],
+        "portfolio": {
+          "@type": "Collection",
+          "name": "Projets Web",
+          "hasPart": [
+            {
+              "@type": "CreativeWork",
+              "name": "Portfolio",
+              "description": "Mon portfiolio (html, css, scss, javascript)",
+              "url": "https://www.anvuwebdev.com/",
+              "image": "https://www.anvuwebdev.com/img/project4-portfolio.webp",
+              "technologiesUsed": ["Html", "CSS", "javascript"]
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "contact@anvuwebdev.com",
+              "contactType": "professional"
+            }
+          ]
+        }
+      }
+    </script>
+
+    <title>Portfolio An VU, Développeuse Web Front End</title>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="./icon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="./icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./icon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="./icon/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="./icon/android-chrome-512x512.png">
+ 
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/style-bg.css" />
@@ -195,21 +259,25 @@
 
             <!-- Simple pagination for the slider -->
             <ul class="pagination" aria-label="pagination">
-            <!-- Projet 1 site vitrine -->              
+            <!-- Projet 0 site vitrine -->              
               <li class="pagination__item">
-                <div class="pagination__button"></div>
+                <div class="pagination__button" aria-label="Aller au site Vitrine"></div>
               </li>
+            <!-- Projet 1 site évènementiel -->              
+            <li class="pagination__item">
+              <div class="pagination__button" aria-label="Aller au site Evènementiel"></div>
+            </li>
             <!-- Projet site immobilier --> 
               <li class="pagination__item">
-                <div class="pagination__button"></div>
+                <div class="pagination__button" aria-label="Aller au site Immobilier"></div>
               </li>
             <!-- Projet3 site e-commerce --> 
               <li class="pagination__item">
-                <div class="pagination__button"></div>
+                <div class="pagination__button" aria-label="Aller au site E-commerce"></div>
               </li>
             <!-- Projet4 portfolio --> 
               <li class="pagination__item">
-                <div class="pagination__button"></div>
+                <div class="pagination__button" aria-label="Aller au Portfolio"></div>
               </li>
             </ul>
           </main>

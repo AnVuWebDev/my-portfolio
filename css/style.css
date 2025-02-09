@@ -693,7 +693,7 @@ footer {
   }
 
   .projects-section {
-    height: 100vh;
+    height: 120vh;
   }
 
   h2 {
@@ -880,18 +880,28 @@ footer {
 /* Pour Screen 4K (orientation: paysage) */
 @media all and (min-width: 1441px) {
   :root {
-    --font-size-base: 30px;
-    --font-size-heading: 2em;
-    --line-height: 1.6;
+    --font-size-base: 20px;
+    --font-size-heading: 1.8em;;
+    --line-height: 1.4;
   }
 
-  .navbar {
-    height: 10vh;
+  section {
+    max-height: 100vh;
+    margin: 0 auto;
+  }
+
+  .icon-stack {
+    width: 4em;
+    height: 4em;
   }
 
   form {
-    width: 60%;
-    height: 60%;
-    transform: scale(1.1);
+    width: 50%;
+    height: 70%;
+    transform: scale(1);
+  }
+
+  footer {
+    height: 8em;
   }
 }

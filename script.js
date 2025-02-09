@@ -165,6 +165,57 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+
+  // Gestionnaire d'événements pour les flèches
+  const handleArrowClick = (direction) => {
+    const currentIndex = msImages.index;
+    const total = msImages.slidesLength;
+    let newIndex;
+
+    if (direction === 'prev') {
+      newIndex = currentIndex > 0 ? currentIndex - 1 : total - 1;
+    } else {
+      newIndex = currentIndex < total - 1 ? currentIndex + 1 : 0;
+    }
+
+    msImages.select(newIndex);
+    updateProgress(newIndex);
+  };
+
+  // Événements des flèches
+  arrowsContainer.querySelector(".arrow--prev").addEventListener("click", () => handleArrowClick('prev'));
+  arrowsContainer.querySelector(".arrow--next").addEventListener("click", () => handleArrowClick('next'));
+
+  // Initialisation de l'indicateur de progression
+  updateProgress(0);
+
+  // Support du swipe sur mobile
+  let touchstartX = 0;
+  let touchendX = 0;
+
+  slidersContainer.addEventListener('touchstart', e => {
+    touchstartX = e.changedTouches[0].screenX;
+  }, false);
+
+  slidersContainer.addEventListener('touchend', e => {
+    touchendX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, false);
+
+  const handleSwipe = () => {
+    const swipeThreshold = 50; // Seuil minimum pour détecter un swipe
+    const swipeDistance = touchendX - touchstartX;
+
+    if (Math.abs(swipeDistance) > swipeThreshold) {
+      if (swipeDistance > 0) {
+        handleArrowClick('prev');
+      } else {
+        handleArrowClick('next');
+      }
+    }
+  };
+
+
   /* Formulaire de contact */
   const contactForm = document.getElementById("contactForm");
   if (contactForm) {
