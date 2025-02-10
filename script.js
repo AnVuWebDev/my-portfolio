@@ -269,4 +269,35 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("message").addEventListener("input", function () {
     this.scrollTop = this.scrollHeight;
   });
+
+  
+//Bannière Cookies RGPD 
+const cookieBanner = document.getElementById('cookieConsent');
+const acceptButton = document.getElementById('acceptCookies');
+
+if (cookieBanner && !localStorage.getItem('cookieAccepted')) {
+    setTimeout(() => {
+        cookieBanner.classList.add('show');
+    }, 2000);
+}
+
+if (acceptButton) {
+    acceptButton.addEventListener('click', () => {
+        localStorage.setItem('cookieAccepted', 'true');
+        cookieBanner.classList.remove('show');
+    });
+}
+
+/* Affichage de l'email sécurisé page RGPD */
+document.querySelectorAll('.email-protect').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const encoded = JSON.parse(this.dataset.mail);
+        const email = String.fromCharCode(...encoded);
+        this.href = 'mailto:' + email;
+        this.textContent = email;
+    });
+
+    });
+
 });

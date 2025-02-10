@@ -1,0 +1,63 @@
+@import url('style.css');
+
+.legal-content {
+max-width: 100vw;
+padding-top: 3rem;
+text-align: center;
+}
+    
+.legal-content h1 {
+font-size: 4rem;
+letter-spacing: 0.1rem;
+color: rgba(var(--color-solid), 1);
+text-shadow: 2px 2px 2px rgba(var(--text-color), 0.8);
+padding: 10rem;
+margin-bottom: 2rem;
+}
+    
+.legal-content h2 {
+color: rgba(var(--text-color), 1);
+font-size: 1.5rem;
+line-height: 3rem;
+padding: 3rem;
+}
+
+.legal-content p {
+font-family: var(--font-text);
+font-size: 1.2rem;
+line-height: 1.5rem;
+}
+    
+.legal-content section {
+max-width: 80%; 
+margin: 0 auto;
+max-height:min-content;
+padding-bottom: 0;
+}
+
+/* Responsive styles */
+/* Pour mobile (orientation: portrait) */
+@media only screen and (max-width: 426px){
+.legal-content {
+width: 100%;
+padding-top: 50%;
+}
+
+.legal-content h1 {
+font-size: 2.5rem;
+padding: 1rem;
+}
+
+.legal-content section {
+width: 100%;
+padding: 0;
+}   
+}
+
+/* Pour tablette (orientation: paysage) */
+@media only screen and (min-width: 768px) and (max-width: 1023px){
+.legal-content section {
+width: 100%;
+}
+}
+

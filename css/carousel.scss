@@ -94,7 +94,6 @@
       padding: 0;
       margin: 0;
       list-style: none;
-    }
 
     // Slides
     .ms-slide {
@@ -104,13 +103,14 @@
       height: $slide-height;
       user-select: none;
     }
+    }
   }
 }
 
 // Images
 
-$ms-images-slide-width: 700px;
-$ms-images-slide-height: 400px;
+$ms-images-slide-width: 60vw;
+$ms-images-slide-height: 50vh;
 
 // SCSS mixin to generate the final CSS code for the slider
 @include ms(
@@ -157,8 +157,9 @@ $ms-images-slide-height: 400px;
   }
 
   .ms-slide__image-container {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
+    margin: 5%;
     background-color: rgba(var(--bg-color1), 0.3);
     overflow: hidden;
   }
@@ -209,7 +210,7 @@ $ms-titles-slide-height: 100px;
 @include ms(
   $cssClass: "ms--titles",
   $slider-length: $ms-titles-slide-height,
-  $slider-center: false,
+  $slider-center: true,
   $slide-width: $ms-titles-slide-width,
   $slide-height: $ms-titles-slide-height,
   $vertical: true,
@@ -218,24 +219,47 @@ $ms-titles-slide-height: 100px;
 
 .ms--titles {
   position: absolute;
-  left: calc(15% - $ms-titles-slide-width / 2);
+  left: calc(10% - $ms-titles-slide-width / 2);
   top: calc(40% - $ms-titles-slide-height / 2);
   z-index: 1;
   pointer-events: none;
+  
 
-  .ms-- .ms-track {
-    white-space: normal;
+  &.ms-container--vertical {
+    .ms-track {
+      top: 0 !important; 
+      transform: none !important;
+    }
   }
 
   .ms-slide {
+    height: $ms-titles-slide-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: rgb(var(--text-color));
     font-family: var(--font-title);
     letter-spacing: 0.15em;
     font-size: 2.5em;
-
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    
+    &.ms-slide--active {
+      opacity: 1;
+    }
+    
     h4 {
       margin: 0;
       text-shadow: 2px 2px 2px rgb(var(--color-solid));
+      width: 100%;
+      text-align: left;
+      line-height: 1.2; 
+      transform: translateY(50px); // Déplacé l'animation sur h4
+      transition: transform 0.5s ease;
     }
   }
 }
@@ -258,7 +282,7 @@ $ms-descriptions-slide-height: 120px;
 .ms--descriptions {
   position: absolute;
   left: calc(10% - $ms-titles-slide-width / 2);
-  top: calc(65% - $ms-titles-slide-height / 2);
+  top: calc(90% - $ms-titles-slide-height / 2);
   z-index: 1;
   pointer-events: none;
   text-align: left;
@@ -406,7 +430,7 @@ $color-secondary: rgba(var(--text-color), 0.5);
   
   .ms--numbers {
     left: -70px;
-    top: calc(190% - $ms-images-slide-height / 2);
+    top: calc(150% - $ms-images-slide-height / 2);
     transform: scale(80%, 80%);
   }
 
@@ -430,16 +454,73 @@ $color-secondary: rgba(var(--text-color), 0.5);
 }
 
   .ms--titles {
+    position: absolute;
     left: calc(50% - $ms-titles-slide-width / 2);
-    top: calc(10% - $ms-titles-slide-height / 2);
+    top: calc(0% - $ms-titles-slide-height / 2);
     justify-content: center;
+    align-items: center;
     text-align: center;
     font-size: 0.7rem;
+    border: red solid 1px;
 
   .ms-slide {
       transform: scale(0.8);
     }
+
+  &.ms-container--vertical {
+    .ms-track {
+      top: calc(50% - $ms-titles-slide-width / 2); 
+      transform: scale(0.8);
+    }
   }
+}
+  /*
+.ms--titles {
+  position: absolute;
+  left: calc(10% - $ms-titles-slide-width / 2);
+  top: calc(40% - $ms-titles-slide-height / 2);
+  z-index: 1;
+  pointer-events: none;
+  
+
+  &.ms-container--vertical {
+    .ms-track {
+      top: 0 !important; 
+      transform: none !important;
+    }
+  }
+
+  .ms-slide {
+    height: $ms-titles-slide-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(var(--text-color));
+    font-family: var(--font-title);
+    letter-spacing: 0.15em;
+    font-size: 2.5em;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    
+    &.ms-slide--active {
+      opacity: 1;
+    }
+    
+    h4 {
+      margin: 0;
+      text-shadow: 2px 2px 2px rgb(var(--color-solid));
+      width: 100%;
+      text-align: left;
+      line-height: 1.2; 
+      transform: translateY(50px); // Déplacé l'animation sur h4
+      transition: transform 0.5s ease;
+    }
+  }
+}*/
 
   $ms-descriptions-slide-width: 100vw;
   $ms-descriptions-slide-height: 10vh;
@@ -461,7 +542,7 @@ $color-secondary: rgba(var(--text-color), 0.5);
 
   .ms--links {
     left: calc(50% - $ms-links-slide-width / 2);
-    top: calc(100% + $ms-links-slide-height);
+    top: calc(150% - $ms-links-slide-height / 2);
     z-index: 2;
     text-align: center;
     bottom: $ms-descriptions-mobile-height + 10vh;
@@ -473,7 +554,7 @@ $color-secondary: rgba(var(--text-color), 0.5);
 }
 
   .pagination {
-    left: 25vw;
+    left: 10vw;
     top: 170%;
   };
 
@@ -482,8 +563,6 @@ $color-secondary: rgba(var(--text-color), 0.5);
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(var(--bg-color1), 0.95);
-    backdrop-filter: blur(5px);
     padding: 10px;
     margin: 0;
     z-index: 10;
@@ -495,8 +574,6 @@ $color-secondary: rgba(var(--text-color), 0.5);
       align-items: center;
       justify-content: center;
     }
-
-
 }
 
 /* Pour tablette (orientation: paysage) */
@@ -618,7 +695,7 @@ $color-secondary: rgba(var(--text-color), 0.5);
 
 /* Pour Screen 4K (orientation: paysage) */
 @media all and (min-width: 1441px) {
-  $ms-images-slide-width: 1350px;
+  $ms-images-slide-width: 1200px;
   $ms-images-slide-height: 700px;
   @include ms(
     $cssClass: "ms--images",
@@ -650,8 +727,8 @@ $color-secondary: rgba(var(--text-color), 0.5);
   }
 
   .ms--titles {
-    left: calc(20% - $ms-titles-slide-width / 2);
-    top: calc(25% - $ms-titles-slide-height / 2);
+    left: calc(10% - $ms-titles-slide-width / 2);
+    top: calc(20% - $ms-titles-slide-height / 2);
     font-size: 1.5rem;
     overflow: visible;
     text-align: left;
@@ -663,7 +740,7 @@ $color-secondary: rgba(var(--text-color), 0.5);
     overflow: visible;
   }
 
-  $ms-links-slide-width: 350px;
+  $ms-links-slide-width: 250px;
   $ms-links-slide-height: 150px;
 
   @include ms(
@@ -675,9 +752,11 @@ $color-secondary: rgba(var(--text-color), 0.5);
     $vertical: true,
     $reverse: false
   );
+
   .ms--links {
-    left: calc(6% - $ms-descriptions-slide-width / 2);
-    top: 13rem;
+    left: calc(10% - $ms-descriptions-slide-width / 2);
+    top: calc(100% + $ms-descriptions-slide-height / 2);
+    text-align: left;
   }
 
   .pagination {

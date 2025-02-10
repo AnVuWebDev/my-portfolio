@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const msTitles = new MomentumSlider({
       el: slidersContainer,
       cssClass: "ms--titles",
-      range: [0, 4],
+      range: [0, titles.length - 1],
       rangeContent: function (i) {
         return `<h4>${titles[i]}</h4>`;
       },
@@ -60,6 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
         opacity: [0, 1],
       },
       interactive: false,
+      customStyles: {
+        slides: {
+          transition: {
+            duration: 500 // durée de la transition en ms
+          }
+        }
+      }
     });
 
     // Initializing the descriptions slider

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Anton);
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
@@ -44,6 +44,7 @@ html {
   font-size: var(--font-size-base);
   overflow-x: hidden;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 h2 {
@@ -71,11 +72,14 @@ p {
 }
 
 section {
-  height: 100vh;
+  position: relative;
+  overflow: visible;
+  min-height: 100vh;
   width: 100vw;
-  overflow: hidden;
   padding-left: 5rem;
   padding-right: 5rem;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 /* Styles pour le header*/
@@ -249,6 +253,7 @@ input:checked + .slider:before {
 .parallax-section {
   position: relative;
   display: flex;
+  min-height: 100ch;
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
@@ -348,8 +353,15 @@ input:checked + .slider:before {
 /* Section about */
 .about-section {
   position: relative;
-  overflow: hidden;
+  height: auto;
+  min-height: 100vh;
   line-height: 5vh;
+  padding: 5rem;
+  margin-bottom: 0;
+  display: flex; 
+  flex-direction: column; 
+  gap: 2rem;
+  box-sizing: border-box;
 }
 
 .about-section::before {
@@ -376,22 +388,24 @@ input:checked + .slider:before {
 .all-qualities-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 1em;
-  padding: auto;
+  gap: 2em;
+  padding: 2rem 0;
+  width: 100%;
+  height: auto;
   justify-content: center;
 }
 
 .quality-container {
   perspective: 30em;
   width: 30%;
-  height: 30vh;
-  align-self: start;
+  height: 250px;
 }
 
 .card {
   position: relative;
   width: 100%;
   height: 100%;
+  min-height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.4s ease-in-out;
   cursor: pointer;
@@ -508,12 +522,27 @@ input:checked + .slider:before {
   }
 }
 
+
+
+/* cf. style-carousel.scss pour le style de la section projects */
+.projects-section {
+  min-height: fit-content;
+}
+
+.projects-section {
+  position: relative;
+  min-height: 100vh;
+  height: auto;
+  margin-top: 0;
+  padding-top: 4rem;
+  background-color: rgba(var(--bg-color1), 0.1);
+}
+
 .carousel-container {
   margin: 0;
   padding: 0;
 }
 
-/* cf. style-carousel.scss pour le style de la section projects */
 
 /*Section education */
 .education-section {
@@ -664,10 +693,82 @@ footer {
   padding: 30px;
 }
 
+.legal a{
+  color: rgb(var(--text-color));
+  transition: transform 0.3s ease-in-out;
+}
+
+.legal a:hover{
+  color: rgb(var(--color-border));
+}
+
 .legal span:not(:last-child)::after {
   content: " | ";
   padding: 0px 5px;
 }
+
+
+/*Bannière Cookies RGPD */
+.cookie-banner {
+position: fixed;
+bottom: 0;
+left: 0;
+right: 0;
+background: rgba(var(--text-color), 0.95);
+color: rgba(var(--accent-color), 1);
+padding: 20px;
+z-index: 9999;
+display: none;
+transform: translateY(100%);
+transition: transform 0.3s ease-in-out;
+}
+  
+.cookie-banner.show {
+display: block;
+transform: translateY(0);
+}
+  
+.cookie-content {
+max-width: 100vw;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 20px;
+}
+  
+.cookie-content p {
+margin: 0;
+flex: 1;
+min-width: 300px;
+}
+  
+.cookie-buttons {
+display: flex;
+gap: 20px;
+align-items: center;
+flex-wrap: wrap;
+}
+  
+.cookie-button {
+padding: 8px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+  
+.cookie-button.accept {
+background: rgba(var(--color-button), 1);
+color: rgba(var(--accent-color), 1);
+}
+  
+.cookie-link {
+color: rgba(var(--accent-color), 1);
+text-decoration: underline;
+}
+
 
 /* Responsive styles */
 /* Pour mobile (orientation: portrait) */
@@ -870,11 +971,25 @@ footer {
 @media all and (min-width: 1024px) and (max-width: 1280px) {
   /* pour chaque sections */
   .about-section {
-    height: 150vh;
+    padding: 6rem 5rem 8rem 5rem;
+    margin-bottom: 0;
+    min-height: 100vh;
+    height: auto;
+    padding: 6rem 5rem 4rem 5rem;
+    overflow: visible;
   }
+
   .quality-container {
     width: 45%;
+    height: 300px;
+    margin-bottom: 2rem;
   }
+
+  .card {
+    height: 100%;
+    min-height: 250px;
+  }
+
 }
 
 /* Pour Screen 4K (orientation: paysage) */
@@ -885,10 +1000,11 @@ footer {
     --line-height: 1.4;
   }
 
-  section {
-    max-height: 100vh;
-    margin: 0 auto;
+  .about-section {
+    height: 120vh;
+    padding: 2rem 5rem 6rem 5rem;
   }
+
 
   .icon-stack {
     width: 4em;

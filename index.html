@@ -59,8 +59,6 @@
       }
     </script>
 
-    <title>Portfolio An VU, Développeuse Web Front End</title>
-
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="./icon/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="./icon/favicon-32x32.png">
@@ -73,22 +71,31 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/style-bg.css" />
     <link rel="stylesheet" href="./css/carousel.css" />
+
+    <title>Portfolio An VU, Développeuse Web Front End</title>
+
   </head>
 
   <body>
     <header>
       <nav class="navbar">
         <div>
+          <a href="index.html">
           <img
           src="./img/portrait-dark.webp"
+          width="50"
+          height="50"
           alt="Photo profil An VU"
-           class="portrait-photo icon-dark"
+          class="portrait-photo icon-dark"
           />
           <img
           src="./img/portrait-light.webp"
+          width="50"
+          height="50"
           alt="Photo profil An VU"
            class="portrait-photo icon-light"
           />
+          </a>
         </div>
 
         <ul class="nav-menu">
@@ -157,7 +164,9 @@
                 <h3>Créative</h3>
                 <img
                 src="./icon/icon-creative.svg"
-                alt=""
+                width="50"
+                height="50"
+                alt="icone pinceau"
                 class="icon-quality"
               />
               </div>
@@ -175,7 +184,9 @@
                   <h3>Organisée</h3>
                   <img
                   src="./icon/icon-organisation.svg"
-                  alt=""
+                  width="50"
+                  height="50"
+                  alt="icone agenda"
                   class="icon-quality"
                 />
                 </div>
@@ -192,7 +203,9 @@
                 <h3>Flexible</h3>
                 <img
                 src="./icon/icon-flexible.svg"
-                alt=""
+                width="50"
+                height="50"
+                alt="icone responsive"
                 class="icon-quality"
               />
               </div>
@@ -209,7 +222,9 @@
                 <h3 class="seo-kw">Résolution de problème</h3>
                 <img
                 src="./icon/icon-solution.svg"
-                alt=""
+                width="50"
+                height="50"
+                alt="icone ampoule"
                 class="icon-quality"
               />
               </div>
@@ -226,7 +241,9 @@
                   <h3 class="seo-kw">Minutieuse</h3>
                   <img
                     src="./icon/icon-sensdudetail.svg"
-                    alt=""
+                    width="50"
+                    height="50"
+                    alt="icone loupe"
                     class="icon-quality"
                   />
                 </div>
@@ -503,8 +520,22 @@
       <div class="legal">
         <span>Projet réalisé par An VU</span>
         <span>Tous droits réservés</span>
+        <span><a href="./mentions-legales.html">Mentions légales</a></span>
       </div>
     </footer>
+
+    <!-- Bannière Cookies RGPD -->
+    <div id="cookieConsent" class="cookie-banner">
+      <div class="cookie-content">
+          <p>Ce site utilise uniquement des cookies techniques essentiels au fonctionnement du site. En continuant votre navigation, vous acceptez l'utilisation de ces cookies.</p>
+          <div class="cookie-buttons">
+              <button id="acceptCookies" class="cookie-button accept">J'ai compris</button>
+              <a href="mentions-legales.html" class="cookie-link">En savoir plus</a>
+          </div>
+      </div>
+    </div>
+
+
     <script type="module" src="./script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/momentum-slider@latest/dist/momentum-slider.min.js"></script>
     <script type="module" src="./carousel-script.js"></script>
