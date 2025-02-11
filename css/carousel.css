@@ -4,7 +4,7 @@
 }
 .ms--images.ms-container--horizontal {
   width: 100%;
-  height: 50vh;
+  height: 60vh;
   max-width: 100%;
 }
 .ms--images.ms-container--horizontal .ms-track {
@@ -25,7 +25,7 @@
   align-items: center;
   justify-content: center;
   width: 60vw;
-  height: 50vh;
+  height: 60vh;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -35,7 +35,7 @@
   left: calc(60% - 30vw);
 }
 .ms--images.ms-container--horizontal .ms-track {
-  left: -70px;
+  left: -50px;
 }
 .ms--images .ms-slide:nth-child(1) .ms-slide__image {
   background-image: url("../img/project0-infirmiere.webp");
@@ -53,7 +53,7 @@
   background-image: url("../img/project4-portfolio.webp");
 }
 .ms--images .ms-slide__image-container {
-  width: 100%;
+  width: 90%;
   height: 100%;
   margin: 5%;
   background-color: rgba(var(--bg-color1), 0.3);
@@ -101,8 +101,8 @@
 
 .ms--numbers {
   position: absolute;
-  left: calc(40% - 30vw);
-  top: calc(25% - 25vh);
+  left: calc(35% - 30vw);
+  top: calc(25% - 30vh);
   z-index: -1;
   pointer-events: none;
 }
@@ -156,8 +156,8 @@
 
 .ms--titles {
   position: absolute;
-  left: calc(10% - 175px);
-  top: calc(40% - 50px);
+  left: calc(15% - 175px);
+  top: calc(30% - 50px);
   z-index: 1;
   pointer-events: none;
   overflow: visible;
@@ -237,8 +237,8 @@
 
 .ms--descriptions {
   position: absolute;
-  left: calc(10% - 175px);
-  top: calc(90% - 50px);
+  left: calc(18% - 175px);
+  top: calc(80% - 60px);
   z-index: 1;
   pointer-events: none;
   text-align: left;
@@ -287,7 +287,7 @@
 
 .ms--links {
   position: absolute;
-  left: calc(20% - 175px + 2.5rem);
+  left: calc(15% - 175px);
   top: calc(100% - 60px);
   z-index: 1;
   text-align: left;
@@ -315,7 +315,7 @@
   display: flex;
   position: absolute;
   left: 40%;
-  top: 100%;
+  top: 65vh;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -383,7 +383,7 @@
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   .ms--numbers {
     left: calc(40% - 30vw);
-    top: calc(200% - 25vh);
+    top: calc(200% - 30vh);
     transform: scale(150%, 150%);
   }
   .ms--numbers .ms-slide {
@@ -521,7 +521,7 @@
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .ms--numbers {
     left: calc(30% - 30vw);
-    top: calc(5% - 25vh);
+    top: calc(5% - 30vh);
   }
   .ms--titles {
     left: calc(25% - 175px);
@@ -609,34 +609,5 @@
     left: 50%;
     top: 70vh;
     transform: translateX(-50%);
-  }
-}
-/* Pour Laptop et Screen 4K (orientation: paysage) */
-@media all and (min-width: 1024px) {
-  .ms--images {
-    left: calc(60% - 30vw);
-  }
-  .ms--images.ms-container--horizontal .ms-track {
-    left: -50px;
-  }
-  .ms--images .ms-slide__image-container {
-    width: 75%;
-    height: 75%;
-  }
-  .ms--numbers {
-    left: calc(35% - 30vw);
-    top: calc(25% - 25vh);
-  }
-  .ms--titles {
-    left: calc(15% - 175px);
-    top: calc(30% - 50px);
-  }
-  .ms--descriptions {
-    left: calc(18% - 175px);
-    top: calc(80% - 60px);
-  }
-  .ms--links {
-    left: calc(15% - 175px);
-    top: calc(110% - 60px);
   }
 }/*# sourceMappingURL=carousel.css.map */
