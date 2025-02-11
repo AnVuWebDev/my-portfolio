@@ -223,6 +223,7 @@ $ms-titles-slide-height: 100px;
   top: calc(40% - $ms-titles-slide-height / 2);
   z-index: 1;
   pointer-events: none;
+  overflow: visible;
   
 
   &.ms-container--vertical {
@@ -429,13 +430,22 @@ $color-secondary: rgba(var(--text-color), 0.5);
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   
   .ms--numbers {
-    left: -70px;
-    top: calc(150% - $ms-images-slide-height / 2);
-    transform: scale(80%, 80%);
+    left: calc(40% - $ms-images-slide-width / 2);
+    top: calc(200% - $ms-images-slide-height / 2);
+    transform: scale(150%, 150%);
+    
+  
+    .ms-slide {
+      font-family: var(--font-title);
+      font-size: 9em;
+      font-weight: 900;
+      color: rgba(var(--color-button),0.5);
+    }
   }
 
-  $ms-images-slide-width: 525px;
+  $ms-images-slide-width: 425px;
   $ms-images-slide-height: 300px;
+  
   @include ms(
     $cssClass: "ms--images",
     $slide-width: $ms-images-slide-width,
@@ -453,73 +463,27 @@ $color-secondary: rgba(var(--text-color), 0.5);
   }
 }
 
+$ms-titles-slide-width: 150px;
+$ms-titles-slide-height: 50px;
+
   .ms--titles {
-    position: absolute;
-    left: calc(50% - $ms-titles-slide-width / 2);
-    top: calc(0% - $ms-titles-slide-height / 2);
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 0.7rem;
-
-  .ms-slide {
-      transform: scale(0.8);
-    }
-
-  &.ms-container--vertical {
-    .ms-track {
-      top: calc(50% - $ms-titles-slide-width / 2); 
-      transform: scale(0.8);
-    }
+    left: 50%;
+    top: calc(-10% - $ms-titles-slide-height / 2);
+    transform: translate(-30%, -20%);
+    width: 100%;
+    
+  
+ &.ms-container--vertical {
+  .ms-track {
+    width: 100%;
+    left: 0;
   }
 }
-  /*
-.ms--titles {
-  position: absolute;
-  left: calc(10% - $ms-titles-slide-width / 2);
-  top: calc(40% - $ms-titles-slide-height / 2);
-  z-index: 1;
-  pointer-events: none;
-  
-
-  &.ms-container--vertical {
-    .ms-track {
-      top: 0 !important; 
-      transform: none !important;
-    }
-  }
-
-  .ms-slide {
-    height: $ms-titles-slide-height;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgb(var(--text-color));
-    font-family: var(--font-title);
-    letter-spacing: 0.15em;
-    font-size: 2.5em;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    
-    &.ms-slide--active {
-      opacity: 1;
-    }
-    
-    h4 {
-      margin: 0;
-      text-shadow: 2px 2px 2px rgb(var(--color-solid));
-      width: 100%;
-      text-align: left;
-      line-height: 1.2; 
-      transform: translateY(50px); // Déplacé l'animation sur h4
-      transition: transform 0.5s ease;
-    }
-  }
-}*/
+}
 
   $ms-descriptions-slide-width: 100vw;
   $ms-descriptions-slide-height: 10vh;
@@ -539,24 +503,6 @@ $color-secondary: rgba(var(--text-color), 0.5);
     transform: translate(50%, 180%);
   }
 
-  .ms--links {
-    left: calc(50% - $ms-links-slide-width / 2);
-    top: calc(150% - $ms-links-slide-height / 2);
-    z-index: 2;
-    text-align: center;
-    bottom: $ms-descriptions-mobile-height + 10vh;
-    left: 50%;
-    transform: translateX(-50%);
-    transform: translate(-50%, 150%);
-    z-index: 11;
-  }
-}
-
-  .pagination {
-    left: 10vw;
-    top: 170%;
-  };
-
   .ms--descriptions {
     $ms-descriptions-mobile-height: 15vh;
     bottom: 0;
@@ -575,41 +521,59 @@ $color-secondary: rgba(var(--text-color), 0.5);
     }
 }
 
+  .ms--links {
+    left: calc(50% - $ms-links-slide-width / 2);
+    top: calc(180% - $ms-links-slide-height / 2);
+    z-index: 2;
+    text-align: center;
+    bottom: $ms-descriptions-mobile-height + 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translate(-50%, 150%);
+    z-index: 11;
+  }
+
+  .pagination {
+    left: calc(35% - $ms-links-slide-width / 2);
+    top: 85vh;
+  };
+}
+
 /* Pour tablette (orientation: paysage) */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .ms--numbers {
-    left: calc(50% - $ms-images-slide-width / 2);
+    left: calc(30% - $ms-images-slide-width / 2);
     top: calc(5% - $ms-images-slide-height / 2);
   }
 
   .ms--titles {
-    left: calc(50% - $ms-titles-slide-width / 2);
-    top: calc(5% - $ms-titles-slide-height / 2);
+    left: calc(25% - $ms-titles-slide-width / 2);
+    top: calc(90% - $ms-titles-slide-height / 2);
     justify-content: center;
+    align-items: center;
     text-align: center;
     font-size: 0.9rem;
-
-    .ms-slide {
-      transform: scale(0.8);
-    }
-  }
+}
+  
+  $ms-images-slide-width: 80vw;
+  $ms-images-slide-height: 50vh;
 
   .ms--images {
     left: calc(60% - $ms-images-slide-width / 2);
     overflow: visible;
 
     &.ms-container--horizontal .ms-track {
-      left: -50px;
+      left: 0px;
     }
 
     .ms-slide__image-container {
-      width: 75%;
+      width: 100%;
       height: 75%;
     }
   }
 
-  $ms-descriptions-slide-width: 200px;
-  $ms-descriptions-slide-height: 120px;
+$ms-descriptions-slide-width: 200px;
+$ms-descriptions-slide-height: 120px;
 
   @include ms(
     $cssClass: "ms--descriptions",
@@ -621,43 +585,44 @@ $color-secondary: rgba(var(--text-color), 0.5);
     $reverse: true
   );
 
-  .ms--descriptions {
-    position: absolute;
-    left: 20px; 
-    top: 50%; 
-    transform: translateY(-50%);
-    text-align: center;
+.ms--descriptions {
+  transform: translate(50%, 180%);
+  position: absolute;
+  left: 35%; 
+  top: 105%;
+  transform: translateY(-50%);
+  text-align: center;
+  
 
-  .ms-slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: 0.1em;
-      
-  p {
-  margin: 0;
-  padding: 10px;
-  line-height: 1.5;
-}
-}
+    .ms-slide {
+      letter-spacing: 0.1em;
+          
+      p {
+      margin: 0;
+      padding: 10px;
+      line-height: 1.5;
+    }
+    }
 }
 
   .ms--links {
-    left: calc(50% - $ms-links-slide-width / 2);
-    top: calc(80% + $ms-links-slide-height / 2);
+    left: 50%;
+    top: calc(100% - $ms-links-slide-height / 2);
+    transform: translate(-50%, 150%);
     text-align: center;
+    z-index: 2;
   }
 
   .pagination {
     left: 50%;
-    top: calc(100% + 15px);
-    transform: translateX(-50%);
-  }
+    top: 70vh;
+    transform: translateX(-50%); 
+  };
 
 }
 
-/* Pour Laptop (orientation: paysage) */
-@media all and (min-width: 1024px) and (max-width: 1280px) {
+/* Pour Laptop et Screen 4K (orientation: paysage) */
+@media all and (min-width: 1024px) {
   .ms--images {
     left: calc(60% - $ms-images-slide-width / 2);
 
@@ -677,89 +642,18 @@ $color-secondary: rgba(var(--text-color), 0.5);
   }
 
   .ms--titles {
-    left: calc(10% - $ms-titles-slide-width / 2);
-    top: calc(40% - $ms-titles-slide-height / 2);
+    left: calc(15% - $ms-titles-slide-width / 2);
+    top: calc(30% - $ms-titles-slide-height / 2);
   }
 
   .ms--descriptions {
-    left: calc(6% - $ms-descriptions-slide-width / 2);
-    top: calc(70% - $ms-descriptions-slide-height / 2);
+    left: calc(18% - $ms-descriptions-slide-width / 2);
+    top: calc(80% - $ms-descriptions-slide-height / 2);
   }
 
   .ms--links {
-    left: calc(20% - $ms-descriptions-slide-width / 2);
-    top: calc(100% - $ms-descriptions-slide-height / 2);
+    left: calc(15% - $ms-descriptions-slide-width / 2);
+    top: calc(110% - $ms-descriptions-slide-height / 2);
   }
 }
 
-/* Pour Screen 4K (orientation: paysage) */
-@media all and (min-width: 1441px) {
-  $ms-images-slide-width: 1200px;
-  $ms-images-slide-height: 700px;
-  @include ms(
-    $cssClass: "ms--images",
-    $slider-length: 100%,
-    $slider-center: false,
-    $slide-width: $ms-images-slide-width,
-    $slide-height: $ms-images-slide-height,
-    $vertical: false,
-    $reverse: false
-  );
-
-  .ms--images {
-    left: calc(40% - $ms-images-slide-width / 2);
-
-    &.ms-container--horizontal .ms-track {
-      left: -50px;
-    }
-
-    .ms-slide__image-container {
-      width: 95%;
-      height: 95%;
-    }
-  }
-
-  .ms--numbers {
-    left: calc(35% - $ms-images-slide-width / 2);
-    top: calc(25% - $ms-images-slide-height / 2);
-    overflow: visible;
-  }
-
-  .ms--titles {
-    left: calc(10% - $ms-titles-slide-width / 2);
-    top: calc(20% - $ms-titles-slide-height / 2);
-    font-size: 1.5rem;
-    overflow: visible;
-    text-align: left;
-  }
-
-  .ms--descriptions {
-    left: calc(6% - $ms-descriptions-slide-width / 2);
-    top: calc(70% - $ms-descriptions-slide-height / 2);
-    overflow: visible;
-  }
-
-  $ms-links-slide-width: 250px;
-  $ms-links-slide-height: 150px;
-
-  @include ms(
-    $cssClass: "ms--links",
-    $slider-length: $ms-links-slide-height,
-    $slider-center: false,
-    $slide-width: $ms-links-slide-width,
-    $slide-height: $ms-links-slide-height,
-    $vertical: true,
-    $reverse: false
-  );
-
-  .ms--links {
-    left: calc(10% - $ms-descriptions-slide-width / 2);
-    top: calc(100% + $ms-descriptions-slide-height / 2);
-    text-align: left;
-  }
-
-  .pagination {
-    left: 45%;
-    transform: scale(1.5);
-  }
-}

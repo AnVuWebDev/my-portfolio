@@ -526,10 +526,6 @@ input:checked + .slider:before {
 
 /* cf. style-carousel.scss pour le style de la section projects */
 .projects-section {
-  min-height: fit-content;
-}
-
-.projects-section {
   position: relative;
   min-height: 100vh;
   height: auto;
@@ -546,6 +542,9 @@ input:checked + .slider:before {
 
 /*Section education */
 .education-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding-top: 2rem;
   background-color: rgba(var(--bg-color2), 1);
   opacity: 0.8;
@@ -597,6 +596,13 @@ input:checked + .slider:before {
 }
 
 /* Section formulaire de contact */
+.contact-section  {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #contactForm label {
   padding: 5px;
 }
@@ -967,15 +973,22 @@ text-decoration: underline;
   }
 }
 
-/* Pour Laptop (orientation: paysage) */
-@media all and (min-width: 1024px) and (max-width: 1280px) {
+/* Pour Laptop et Screen 4K (orientation: paysage) */
+@media all and (min-width: 1024px) and (max-width: 2560px) {
   /* pour chaque sections */
+  :root {
+    --font-size-base: 20px;
+    --font-size-heading: 1.8em;;
+    --line-height: 1.4;
+  }
+
+
   .about-section {
     padding: 6rem 5rem 8rem 5rem;
     margin-bottom: 0;
-    min-height: 100vh;
+    height: 120vh;
     height: auto;
-    padding: 6rem 5rem 4rem 5rem;
+    padding: 4rem 5rem 4rem 5rem;
     overflow: visible;
   }
 
@@ -989,21 +1002,6 @@ text-decoration: underline;
     height: 100%;
     min-height: 250px;
   }
-}
-
-/* Pour Screen 4K (orientation: paysage) */
-@media all and (min-width: 1441px) {
-  :root {
-    --font-size-base: 20px;
-    --font-size-heading: 1.8em;;
-    --line-height: 1.4;
-  }
-
-  .about-section {
-    height: 120vh;
-    padding: 2rem 5rem 6rem 5rem;
-  }
-
 
   .icon-stack {
     width: 4em;
@@ -1011,12 +1009,12 @@ text-decoration: underline;
   }
 
   form {
-    width: 50%;
-    height: 70%;
-    transform: scale(1);
+  width: 50%;
+  height: 100%;
+  transform: scale(1);
   }
 
   footer {
-    height: 8em;
+    height: 8rem;
   }
 }

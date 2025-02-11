@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .ms--images {
   position: relative;
   overflow: hidden;
@@ -161,6 +160,7 @@
   top: calc(40% - 50px);
   z-index: 1;
   pointer-events: none;
+  overflow: visible;
 }
 .ms--titles.ms-container--vertical .ms-track {
   top: 0 !important;
@@ -382,9 +382,15 @@
 /* Pour mobile (orientation: portrait) */
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   .ms--numbers {
-    left: -70px;
-    top: calc(150% - 25vh);
-    transform: scale(80%, 80%);
+    left: calc(40% - 30vw);
+    top: calc(200% - 25vh);
+    transform: scale(150%, 150%);
+  }
+  .ms--numbers .ms-slide {
+    font-family: var(--font-title);
+    font-size: 9em;
+    font-weight: 900;
+    color: rgba(var(--color-button), 0.5);
   }
   .ms--images {
     position: relative;
@@ -396,7 +402,7 @@
     max-width: 100%;
   }
   .ms--images.ms-container--horizontal .ms-track {
-    left: calc(50% - 262.5px);
+    left: calc(50% - 212.5px);
   }
   .ms--images.ms-container--horizontal .ms-slide {
     display: inline-flex;
@@ -412,7 +418,7 @@
   .ms--images .ms-track .ms-slide {
     align-items: center;
     justify-content: center;
-    width: 525px;
+    width: 425px;
     height: 300px;
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -428,68 +434,19 @@
     height: 80%;
   }
   .ms--titles {
-    position: absolute;
-    left: calc(50% - 175px);
-    top: calc(0% - 50px);
     justify-content: center;
     align-items: center;
     text-align: center;
     font-size: 0.7rem;
-  }
-  .ms--titles .ms-slide {
-    transform: scale(0.8);
+    left: 50%;
+    top: calc(-10% - 25px);
+    transform: translate(-30%, -20%);
+    width: 100%;
   }
   .ms--titles.ms-container--vertical .ms-track {
-    top: calc(50% - 175px);
-    transform: scale(0.8);
+    width: 100%;
+    left: 0;
   }
-  /*
-  .ms--titles {
-    position: absolute;
-    left: calc(10% - $ms-titles-slide-width / 2);
-    top: calc(40% - $ms-titles-slide-height / 2);
-    z-index: 1;
-    pointer-events: none;
-
-
-    &.ms-container--vertical {
-      .ms-track {
-        top: 0 !important; 
-        transform: none !important;
-      }
-    }
-
-    .ms-slide {
-      height: $ms-titles-slide-height;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgb(var(--text-color));
-      font-family: var(--font-title);
-      letter-spacing: 0.15em;
-      font-size: 2.5em;
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-
-      &.ms-slide--active {
-        opacity: 1;
-      }
-
-      h4 {
-        margin: 0;
-        text-shadow: 2px 2px 2px rgb(var(--color-solid));
-        width: 100%;
-        text-align: left;
-        line-height: 1.2; 
-        transform: translateY(50px); // Déplacé l'animation sur h4
-        transition: transform 0.5s ease;
-      }
-    }
-  }*/
   .ms--descriptions {
     position: relative;
     overflow: hidden;
@@ -529,9 +486,24 @@
     text-align: center;
     transform: translate(50%, 180%);
   }
+  .ms--descriptions {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    z-index: 10;
+  }
+  .ms--descriptions .ms-slide {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .ms--links {
     left: calc(50% - 60px);
-    top: calc(150% - 30px);
+    top: calc(180% - 30px);
     z-index: 2;
     text-align: center;
     bottom: 25vh;
@@ -540,53 +512,34 @@
     transform: translate(-50%, 150%);
     z-index: 11;
   }
+  .pagination {
+    left: calc(35% - 60px);
+    top: 85vh;
+  }
 }
-.pagination {
-  left: 10vw;
-  top: 170%;
-}
-
-.ms--descriptions {
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 10px;
-  margin: 0;
-  z-index: 10;
-}
-.ms--descriptions .ms-slide {
-  text-align: center;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* Pour tablette (orientation: paysage) */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .ms--numbers {
-    left: calc(50% - 30vw);
+    left: calc(30% - 30vw);
     top: calc(5% - 25vh);
   }
   .ms--titles {
-    left: calc(50% - 175px);
-    top: calc(5% - 50px);
+    left: calc(25% - 175px);
+    top: calc(90% - 50px);
     justify-content: center;
+    align-items: center;
     text-align: center;
     font-size: 0.9rem;
   }
-  .ms--titles .ms-slide {
-    transform: scale(0.8);
-  }
   .ms--images {
-    left: calc(60% - 30vw);
+    left: calc(60% - 40vw);
     overflow: visible;
   }
   .ms--images.ms-container--horizontal .ms-track {
-    left: -50px;
+    left: 0px;
   }
   .ms--images .ms-slide__image-container {
-    width: 75%;
+    width: 100%;
     height: 75%;
   }
   .ms--descriptions {
@@ -630,16 +583,14 @@
             user-select: none;
   }
   .ms--descriptions {
+    transform: translate(50%, 180%);
     position: absolute;
-    left: 20px;
-    top: 50%;
+    left: 35%;
+    top: 105%;
     transform: translateY(-50%);
     text-align: center;
   }
   .ms--descriptions .ms-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     letter-spacing: 0.1em;
   }
   .ms--descriptions .ms-slide p {
@@ -648,18 +599,20 @@
     line-height: 1.5;
   }
   .ms--links {
-    left: calc(50% - 60px);
-    top: calc(80% + 30px);
+    left: 50%;
+    top: calc(100% - 30px);
+    transform: translate(-50%, 150%);
     text-align: center;
+    z-index: 2;
   }
   .pagination {
     left: 50%;
-    top: calc(100% + 15px);
+    top: 70vh;
     transform: translateX(-50%);
   }
 }
-/* Pour Laptop (orientation: paysage) */
-@media all and (min-width: 1024px) and (max-width: 1280px) {
+/* Pour Laptop et Screen 4K (orientation: paysage) */
+@media all and (min-width: 1024px) {
   .ms--images {
     left: calc(60% - 30vw);
   }
@@ -675,120 +628,15 @@
     top: calc(25% - 25vh);
   }
   .ms--titles {
-    left: calc(10% - 175px);
-    top: calc(40% - 50px);
+    left: calc(15% - 175px);
+    top: calc(30% - 50px);
   }
   .ms--descriptions {
-    left: calc(6% - 175px);
-    top: calc(70% - 60px);
+    left: calc(18% - 175px);
+    top: calc(80% - 60px);
   }
   .ms--links {
-    left: calc(20% - 175px);
-    top: calc(100% - 60px);
-  }
-}
-/* Pour Screen 4K (orientation: paysage) */
-@media all and (min-width: 1441px) {
-  .ms--images {
-    position: relative;
-    overflow: hidden;
-  }
-  .ms--images.ms-container--horizontal {
-    width: 100%;
-    height: 700px;
-    max-width: 100%;
-  }
-  .ms--images.ms-container--horizontal .ms-track {
-    left: calc(50% - 600px);
-  }
-  .ms--images.ms-container--horizontal .ms-slide {
-    display: inline-flex;
-  }
-  .ms--images .ms-track {
-    display: flex;
-    position: absolute;
-    white-space: nowrap;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  .ms--images .ms-track .ms-slide {
-    align-items: center;
-    justify-content: center;
-    width: 1200px;
-    height: 700px;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-            user-select: none;
-  }
-  .ms--images {
-    left: calc(40% - 600px);
-  }
-  .ms--images.ms-container--horizontal .ms-track {
-    left: -50px;
-  }
-  .ms--images .ms-slide__image-container {
-    width: 95%;
-    height: 95%;
-  }
-  .ms--numbers {
-    left: calc(35% - 600px);
-    top: calc(25% - 350px);
-    overflow: visible;
-  }
-  .ms--titles {
-    left: calc(10% - 175px);
-    top: calc(20% - 50px);
-    font-size: 1.5rem;
-    overflow: visible;
-    text-align: left;
-  }
-  .ms--descriptions {
-    left: calc(6% - 175px);
-    top: calc(70% - 60px);
-    overflow: visible;
-  }
-  .ms--links {
-    position: relative;
-    overflow: hidden;
-  }
-  .ms--links.ms-container--vertical {
-    width: 250px;
-    height: 150px;
-    max-height: 100%;
-  }
-  .ms--links.ms-container--vertical .ms-track {
-    flex-direction: column;
-    top: calc(50% - 75px);
-  }
-  .ms--links.ms-container--vertical .ms-slide {
-    display: flex;
-    flex-direction: column;
-  }
-  .ms--links .ms-track {
-    display: flex;
-    position: absolute;
-    white-space: nowrap;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-  .ms--links .ms-track .ms-slide {
-    align-items: center;
-    justify-content: center;
-    width: 250px;
-    height: 150px;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-            user-select: none;
-  }
-  .ms--links {
-    left: calc(10% - 175px);
-    top: calc(100% + 60px);
-    text-align: left;
-  }
-  .pagination {
-    left: 45%;
-    transform: scale(1.5);
+    left: calc(15% - 175px);
+    top: calc(110% - 60px);
   }
 }/*# sourceMappingURL=carousel.css.map */
