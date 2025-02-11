@@ -435,7 +435,6 @@
     align-items: center;
     text-align: center;
     font-size: 0.7rem;
-    border: red solid 1px;
   }
   .ms--titles .ms-slide {
     transform: scale(0.8);
