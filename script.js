@@ -298,6 +298,6 @@ document.querySelectorAll('.email-protect').forEach(link => {
         this.textContent = email;
     });
 
-    });
+});
 
 });

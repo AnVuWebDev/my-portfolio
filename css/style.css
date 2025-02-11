@@ -715,7 +715,7 @@ bottom: 0;
 left: 0;
 right: 0;
 background: rgba(var(--text-color), 0.95);
-color: rgba(var(--accent-color), 1);
+color: rgba(var(--), 1);
 padding: 20px;
 z-index: 9999;
 display: none;
@@ -989,7 +989,6 @@ text-decoration: underline;
     height: 100%;
     min-height: 250px;
   }
-
 }
 
 /* Pour Screen 4K (orientation: paysage) */
