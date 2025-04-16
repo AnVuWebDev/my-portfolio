@@ -539,7 +539,6 @@ input:checked + .slider:before {
   padding: 0;
 }
 
-
 /*Section education */
 .education-section {
   display: flex;
@@ -1018,3 +1017,4 @@ text-decoration: underline;
     height: 8rem;
   }
 }
+

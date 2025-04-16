@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const projectLinks = [
-    "https://infirmiere-liberale-sevran.fr/", // Site Vitrine
+    "https://jadnart.com/", // Site E-Commerce
     "https://www.pharma-expo-cameroun.com/", // Site Evènementiel
+    "https://infirmiere-liberale-sevran.fr/",  // Site Vitrine
     "https://toucanpropertyphuket.com/", // Site Immobilier
-    "https://www.universkope.com/", // Site E-Commerce
     "https://www.anvuwebdev.com/", // Portfolio
   ];
 
@@ -40,10 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initializing the titles slider
     const titles = [
-      "Site<br>Vitrine",
-      "Site<br>Evènementiel",
-      "Site<br>Immobilier",
       "Site<br>E-Commerce",
+      "Site<br>Evènementiel",
+      "Site<br>Vitrine",
+      "Site<br>Immobilier",
       "Portfolio",
     ];
 
@@ -71,10 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initializing the descriptions slider
     const descriptions = [
-      "html<br>css<br>javascript",
-      "wix<br>html<br>css<br>javascript",
-      "WordPress<br>html<br>css",
       "Shopify<br>html<br>css",
+      "wix<br>html<br>css<br>javascript",
+      "html<br>css<br>javascript",
+      "WordPress<br>html<br>css",
       "html<br>css<br>javascript",
     ];
 
@@ -138,4 +138,70 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   })();
+
+
+  // Ajouter les overlays pour les flèches de swipe avec plus de débogage et de robustesse
+setTimeout(() => {
+  console.log("Tentative d'ajout des overlays de swipe...");
+  
+  // Sélectionner tous les slides d'images
+  const imageSlides = document.querySelectorAll('.ms--images .ms-slide');
+  console.log(`Trouvé ${imageSlides.length} slides d'images`);
+  
+  if (imageSlides.length === 0) {
+    // Solution alternative si la structure DOM est différente
+    console.log("Tentative avec un sélecteur alternatif...");
+    const altSlides = document.querySelectorAll('.ms-slide');
+    console.log(`Sélecteur alternatif: trouvé ${altSlides.length} slides`);
+    
+    if (altSlides.length > 0) {
+      altSlides.forEach((slide, index) => {
+        if (!slide.querySelector('.swipe-overlay')) {
+          const overlay = document.createElement('div');
+          overlay.className = 'swipe-overlay';
+          // Force l'affichage sur tous les écrans pour tester
+          overlay.style.display = 'block';
+          slide.appendChild(overlay);
+          console.log(`Overlay ajouté au slide alternatif ${index+1}`);
+        }
+      });
+    }
+  } else {
+    // Ajouter un overlay à chaque slide
+    imageSlides.forEach((slide, index) => {
+      // Vérifier si l'overlay n'existe pas déjà
+      if (!slide.querySelector('.swipe-overlay')) {
+        const overlay = document.createElement('div');
+        overlay.className = 'swipe-overlay';
+        // Force l'affichage sur tous les écrans pour tester
+        overlay.style.display = 'block';
+        slide.appendChild(overlay);
+        console.log(`Overlay ajouté au slide ${index+1}`);
+      }
+    });
+  }
+  
+  // Vérification finale
+  setTimeout(() => {
+    const allOverlays = document.querySelectorAll('.swipe-overlay');
+    console.log(`Vérification finale: ${allOverlays.length} overlays trouvés`);
+    
+    // Si toujours aucun overlay, essayons de les ajouter directement aux containers d'images
+    if (allOverlays.length === 0) {
+      const imageContainers = document.querySelectorAll('.ms-slide__image-container');
+      console.log(`Tentative sur les conteneurs d'images: ${imageContainers.length} trouvés`);
+      
+      imageContainers.forEach((container, index) => {
+        const overlay = document.createElement('div');
+        overlay.className = 'swipe-overlay';
+        overlay.style.display = 'block';
+        container.appendChild(overlay);
+        console.log(`Overlay ajouté au container d'image ${index+1}`);
+      });
+    }
+  }, 1000);
+  
+}, 3000); // Délai augmenté à 3 secondes
+
+
 });

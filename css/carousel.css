@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .ms--images {
   position: relative;
   overflow: hidden;
@@ -31,26 +32,72 @@
           user-select: none;
 }
 
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .ms--images {
+  position: relative;
   left: calc(60% - 30vw);
+  /* Ajustements pour très petits écrans */
 }
 .ms--images.ms-container--horizontal .ms-track {
   left: -50px;
 }
+.ms--images .ms-slide {
+  position: relative;
+}
 .ms--images .ms-slide:nth-child(1) .ms-slide__image {
-  background-image: url("../img/project0-infirmiere.webp");
+  background-image: url("../img/project-jadnart.webp");
 }
 .ms--images .ms-slide:nth-child(2) .ms-slide__image {
-  background-image: url("../img/project1-PEC2025.webp");
+  background-image: url("../img/project-PEC2025.webp");
 }
 .ms--images .ms-slide:nth-child(3) .ms-slide__image {
-  background-image: url("../img/project2-immo.webp");
+  background-image: url("../img/project-infirmiere.webp");
 }
 .ms--images .ms-slide:nth-child(4) .ms-slide__image {
-  background-image: url("../img/project3-ecommerce.webp");
+  background-image: url("../img/project-immo.webp");
 }
 .ms--images .ms-slide:nth-child(5) .ms-slide__image {
-  background-image: url("../img/project4-portfolio.webp");
+  background-image: url("../img/project-portfolio.webp");
+}
+.ms--images .ms-slide .swipe-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 80px !important;
+  z-index: 50 !important;
+  pointer-events: none !important;
+}
+.ms--images .ms-slide .swipe-overlay::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: 30px !important;
+  transform: translate(-50%, -50%) rotate(45deg) !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-top: 2px solid rgb(var(--text-color)) !important;
+  border-right: 2px solid rgb(var(--text-color)) !important;
+  z-index: 52 !important;
+  animation: pulse 1.5s infinite !important;
+}
+@media screen and (max-width: 374px) {
+  .ms--images ms--images .ms-slide .swipe-overlay {
+    width: 60px !important;
+  }
+  .ms--images ms--images .ms-slide .swipe-overlay::after {
+    right: 60px !important;
+  }
 }
 .ms--images .ms-slide__image-container {
   width: 90%;
@@ -379,6 +426,23 @@
   flex: 1;
 }
 
+@media only screen and (max-width: 1023px) {
+  .ms--images .ms-slide::after, .ms--images .ms-slide::before {
+    display: block;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .ms--images .ms-slide::before {
+    width: 25px;
+    height: 25px;
+    right: 5px;
+  }
+  .ms--images .ms-slide::after {
+    width: 10px;
+    height: 10px;
+    right: 12px;
+  }
+}
 /* Pour mobile (orientation: portrait) */
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   .ms--numbers {

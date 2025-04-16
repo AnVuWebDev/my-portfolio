@@ -129,8 +129,22 @@ $ms-images-slide-height: 60vh;
   $reverse: false
 );
 
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 // Custom styles for images slider
 .ms--images {
+  position: relative;
+
   left: calc(60% - $ms-images-slide-width / 2);
 
   &.ms-container--horizontal .ms-track {
@@ -139,22 +153,62 @@ $ms-images-slide-height: 60vh;
 
   // Slides images
   .ms-slide {
+    position: relative;
+
     &:nth-child(1) .ms-slide__image {
-      background-image: url("../img/project0-infirmiere.webp");
+      background-image: url("../img/project-jadnart.webp");
     }
     &:nth-child(2) .ms-slide__image {
-      background-image: url("../img/project1-PEC2025.webp");
+      background-image: url("../img/project-PEC2025.webp");
     }
     &:nth-child(3) .ms-slide__image {
-      background-image: url("../img/project2-immo.webp");
+      background-image: url("../img/project-infirmiere.webp");
     }
     &:nth-child(4) .ms-slide__image {
-      background-image: url("../img/project3-ecommerce.webp");
+      background-image: url("../img/project-immo.webp");
     }
     &:nth-child(5) .ms-slide__image {
-      background-image: url("../img/project4-portfolio.webp");
+      background-image: url("../img/project-portfolio.webp");
+    }
+
+
+.swipe-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 80px !important;
+  z-index: 50 !important;
+  pointer-events: none !important;
+}
+
+.swipe-overlay::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: 30px !important;
+  transform: translate(-50%, -50%) rotate(45deg) !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-top: 2px solid rgb(var(--text-color)) !important;
+  border-right: 2px solid rgb(var(--text-color)) !important;
+  z-index: 52 !important;
+  animation: pulse 1.5s infinite !important;
+}
+}
+    
+/* Ajustements pour très petits écrans */
+@media screen and (max-width: 374px) {
+  ms--images .ms-slide {
+    .swipe-overlay {
+      width: 60px !important;
+    }
+    
+    .swipe-overlay::after {
+      right: 60px !important;
     }
   }
+}
 
   .ms-slide__image-container {
     width: 90%;
@@ -430,6 +484,32 @@ $color-secondary: rgba(var(--text-color), 0.5);
 
 
 // Responsive styles
+
+// Media query pour afficher les flèches uniquement sur mobile et tablette
+@media only screen and (max-width: 1023px) {
+  .ms--images .ms-slide {
+    &::after, &::before {
+      display: block; // Afficher les flèches sur mobile
+    }
+  }
+}
+
+// Ajustements pour les très petits écrans
+@media only screen and (max-width: 480px) {
+  .ms--images .ms-slide {
+    &::before {
+      width: 25px;
+      height: 25px;
+      right: 5px;
+    }
+    &::after {
+      width: 10px;
+      height: 10px;
+      right: 12px;
+    }
+  }
+}
+
 /* Pour mobile (orientation: portrait) */
 @media only screen and (min-width: 320px) and (max-width: 767px) {
   
