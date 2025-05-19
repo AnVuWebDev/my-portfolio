@@ -105,25 +105,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Fonction pour le bouton plus d'info smooth scroll
-  const smoothScrollElements = document.querySelectorAll(
-    "#about-btn, .nav-menu a"
-  );
+const smoothScrollElements = document.querySelectorAll(
+  "#about-btn, .nav-menu a"
+);
 
-  smoothScrollElements.forEach((element) => {
-    element.addEventListener("click", (event) => {
-      event.preventDefault();
-
-      const targetId = element.getAttribute("href");
-
-      const targetElement =
-        targetId && targetId.startsWith("#")
-          ? document.querySelector(targetId)
-          : null;
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
+smoothScrollElements.forEach((element) => {
+  element.addEventListener("click", (event) => {
+    const targetId = element.getAttribute("href");
+    
+    // Si nous sommes sur la page principale et le lien commence par #
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === '') {
+      if (targetId && targetId.startsWith('#')) {
+        event.preventDefault();
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+        }
       }
-    });
+    }
+    // Sinon, laissez le comportement par défaut du navigateur gérer le lien
   });
+});
 
   const blocks = document.querySelectorAll(".block");
   const observer = new IntersectionObserver(

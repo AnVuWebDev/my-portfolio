@@ -701,6 +701,7 @@ footer {
 .legal a{
   color: rgb(var(--text-color));
   transition: transform 0.3s ease-in-out;
+  text-decoration: underline;
 }
 
 .legal a:hover{
@@ -890,12 +891,6 @@ text-decoration: underline;
     max-width: 60%;
   }
 
-  footer {
-    height: 5em;
-  }
-  .legal {
-    display: none;
-  }
 }
 
 /* Pour mobile (orientation: paysage) */
@@ -963,13 +958,7 @@ text-decoration: underline;
     scrollbar-width: thin;
     scrollbar-color: rgb(var(--color-solid)) rgb(var(--text-color));
   }
-
-  footer {
-    height: 5em;
-  }
-  .legal {
-    display: none;
-  }
+  
 }
 
 /* Pour Laptop et Screen 4K (orientation: paysage) */
@@ -985,7 +974,6 @@ text-decoration: underline;
   .about-section {
     padding: 6rem 5rem 8rem 5rem;
     margin-bottom: 0;
-    height: 120vh;
     height: auto;
     padding: 4rem 5rem 4rem 5rem;
     overflow: visible;
